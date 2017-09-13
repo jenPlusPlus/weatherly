@@ -4,7 +4,7 @@ import jenKey from './keys.js';
 export default class API {
   constructor(location) {
     this.location = location;
-    this.url = `http://api.wunderground.com/api/${jenKey.jenKey}/conditions/hourly/forecast10day/q/CA/San_Francisco.json`;
+    this.url = `http://api.wunderground.com/api/${jenKey.jenKey}/conditions/hourly/forecast10day/q/${this.location}.json`;
   }
   getForecast() {
     fetch(this.url)
