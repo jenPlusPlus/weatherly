@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import Header from './Header';
 import '../CSS/styles.css';
 
+
 export default function App() {
   return (
     <div className="weatherly">
