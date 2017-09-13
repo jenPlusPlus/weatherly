@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Header from './Header';
-import Current from './Current';
+import Current from './Current-Weather';
 import Seven from './Seven-Hour';
 import Ten from './Ten-Day';
 import '../CSS/styles.css';
