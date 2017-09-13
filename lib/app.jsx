@@ -2,13 +2,19 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import '../CSS/styles.css'
 
-function Application() {
+function Header() {
+  return (
+    <header className="header">
+      <h1>Weathrly</h1>
+      <input className="search">Search</input>
+    </header>
+  );
+}
+
+export default function App() {
   return (
     <div className="weatherly">
-      <header className="header">
-        <h1>Weathrly</h1>
-        <input className="search">Search</input>
-      </header>
+      <Header />
 
       <main>
         <h2>Current</h2>
@@ -22,5 +28,3 @@ function Application() {
     </div>
   );
 }
-
-ReactDOM.render(<Application />, document.getElementById('container'));
