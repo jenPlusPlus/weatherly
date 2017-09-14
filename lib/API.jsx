@@ -15,7 +15,7 @@ export default class API {
     this.tenDayForecast = [];
   }
   getForecast() {
-    fetch(this.url)
+    const promise = fetch(this.url)
       .then((response) => response.json()) // Transform the data into json
       .then((data) => {
         const location = data.current_observation.display_location.full; // Get the results
