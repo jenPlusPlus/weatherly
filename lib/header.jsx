@@ -2,7 +2,6 @@ import React from 'react';
 import Search from './Search';
 import '../CSS/styles.css'
 
-
 export default function Header() {
   return (
     <header className="header">
