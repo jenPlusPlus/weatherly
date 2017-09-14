@@ -9,7 +9,15 @@ import '../CSS/styles.css';
 
 
 export default class App extends Component {
-  return (
+  constructor() {
+    super();
+    this.state = {
+      apiData: undefined,
+    }
+  }
+
+  render() {
+    return (
     <div className="weatherly">
       <Header />
       <main>
@@ -21,4 +29,5 @@ export default class App extends Component {
       </main>
     </div>
   );
+  }
 }

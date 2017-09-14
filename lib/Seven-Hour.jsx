@@ -6,9 +6,9 @@ export default class Seven extends Component {
   constructor() {
     super();
     this.state = {
-      time:,
-      temp:,
-      image:,
+      time: '',
+      temp: '',
+      image: '',
       condition: React.PropTypes.string.isRequired,
     }
   }
