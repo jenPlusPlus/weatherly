@@ -10,37 +10,35 @@ export default class API {
     this.tenDayForecast = [];
   }
   getForecast() {
-    const promise = fetch(this.url)
+    return fetch(this.url)
       .then((response) => response.json()) // Transform the data into json
-      .then((data) => {
-        this.current.city = data.current_observation.display_location.full; // Get the results
-        this.current.condition = data.current_observation.weather; // Get the results
-        this.current.day = data.forecast.txt_forecast.forecastday[0].title; // Get the results
-        this.current.temp = data.current_observation.temp_f; // Get the results
-        this.current.highTemp = data.forecast.simpleforecast.forecastday[0].high.fahrenheit; // Get the results
-        this.current.lowTemp = data.forecast.simpleforecast.forecastday[0].low.fahrenheit; // Get the results
-        this.current.summary = data.forecast.txt_forecast.forecastday[0].fcttext;  // Get the results
-        console.log(this.current);
-
-        const sevenHourForecast = data.hourly_forecast;  // Get the results
-        console.log('seven hour forecast is: ');
-        for (let i = 0; i < 7; i++) {
-          this.sevenHourForecast.push({ hour: sevenHourForecast[i].FCTTIME.civil, iconURL: sevenHourForecast[i].icon_url, temp: sevenHourForecast[i].temp.english });
-        }
-        console.log(this.sevenHourForecast);
-
-
-
-        const tenDayForecast = data.forecast.simpleforecast.forecastday;  // Get the results
-        console.log('ten day forecast is: ');
-        for (let i = 0; i < 10; i++) {
-          this.tenDayForecast.push({ day: tenDayForecast[i].date.weekday, iconURL: tenDayForecast[i].icon_url, highTemp: tenDayForecast[i].high.fahrenheit, lowTemp: tenDayForecast[i].low.fahrenheit });
-        }
-        console.log(this.tenDayForecast);
-
-        return;
-      }).catch((error) => {
+      .then(jsonData => this.parseData(jsonData))
+      .catch((error) => {
         console.log('ERROR: ', error);
       });
+  }
+  parseData(data) {
+    this.current.city = data.current_observation.display_location.full; // Get the results
+    this.current.condition = data.current_observation.weather; // Get the results
+    this.current.day = data.forecast.txt_forecast.forecastday[0].title; // Get the results
+    this.current.temp = data.current_observation.temp_f; // Get the results
+    this.current.highTemp = data.forecast.simpleforecast.forecastday[0].high.fahrenheit; // Get the results
+    this.current.lowTemp = data.forecast.simpleforecast.forecastday[0].low.fahrenheit; // Get the results
+    this.current.summary = data.forecast.txt_forecast.forecastday[0].fcttext;  // Get the results
+    console.log(this.current);
+
+    const sevenHourForecast = data.hourly_forecast;  // Get the results
+    console.log('seven hour forecast is: ');
+    for (let i = 0; i < 7; i++) {
+      this.sevenHourForecast.push({ hour: sevenHourForecast[i].FCTTIME.civil, iconURL: sevenHourForecast[i].icon_url, temp: sevenHourForecast[i].temp.english });
+    }
+    console.log(this.sevenHourForecast);
+
+    const tenDayForecast = data.forecast.simpleforecast.forecastday;  // Get the results
+    console.log('ten day forecast is: ');
+    for (let i = 0; i < 10; i++) {
+      this.tenDayForecast.push({ day: tenDayForecast[i].date.weekday, iconURL: tenDayForecast[i].icon_url, highTemp: tenDayForecast[i].high.fahrenheit, lowTemp: tenDayForecast[i].low.fahrenheit });
+    }
+    console.log(this.tenDayForecast);
   }
 }
