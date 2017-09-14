@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import Header from './Header';
 import Current from './Current-Weather';
@@ -7,7 +7,7 @@ import Ten from './Ten-Day';
 import '../CSS/styles.css';
 
 
-export default function App() {
+export default class App extends Component {
   return (
     <div className="weatherly">
       <Header />
