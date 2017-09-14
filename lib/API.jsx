@@ -12,7 +12,7 @@ export default class API {
   getForecast() {
     return fetch(this.url)
       .then((response) => response.json()) // Transform the data into json
-      .then(jsonData => this.parseData(jsonData))
+      .then(jsonData => console.log(jsonData))
       .catch((error) => {
         console.log('ERROR: ', error);
       });

@@ -13,8 +13,10 @@ export default class Search extends React.Component {
   }
   runSearch() {
     console.log('running search');
-    let api = new API(this.state.input);
-    api.getForecast();
+    console.log(this.props.searchTerm);
+    this.props.setLocation(this.state.input);
+    // let api = new API(this.state.input);
+    // api.getForecast();
   }
   setTheState(searchTerm) {
     console.log('setting the state');
@@ -23,7 +25,7 @@ export default class Search extends React.Component {
   render() {
     return (
     <div>
-      <input type="search" className="search" onChange={(event) => this.setTheState(event.target.value)} placeholder="Search for a city or zip code"></input>
+      <input type="search" className="search" value={this.state.input} onChange={(event) => this.setTheState(event.target.value)} placeholder="Search for a city or zip code"></input>
       <button type="submit" onClick={this.runSearch}>Search</button>
     </div>
   );}
