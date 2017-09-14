@@ -12,7 +12,9 @@ export default class API {
     this.lowTemp = null;
     this.summary = '';
     this.sevenHourForecast = [];
+    this.sevenHourForecastImgURLs = [];
     this.tenDayForecast = [];
+    this.tenDayForecastImgURLs = [];
   }
   getForecast() {
     const promise = fetch(this.url)
