@@ -43,6 +43,15 @@ export default class API {
           console.log('temp: ', sevenHourForecast[i].temp.english);
         }
 
+        let sevenHourForecastImgURLs = [];
+        for (let i = 0; i < 7; i++) {
+          sevenHourForecastImgURLs.push({ iconURL: sevenHourForecast[i].icon_url });
+        }
+
+        console.log('icon urls: ', sevenHourForecastImgURLs);
+
+
+
         const tenDayForecast = data.forecast.simpleforecast.forecastday;  // Get the results
         console.log('ten day forecast is: ');
         for (let i = 0; i < 10; i++) {
@@ -50,6 +59,13 @@ export default class API {
           console.log('high: ', tenDayForecast[i].high.fahrenheit);
           console.log('low: ', tenDayForecast[i].low.fahrenheit);
         }
+
+        let tenDayForecastImgURLs = [];
+        for (let i = 0; i < 10; i++) {
+          tenDayForecastImgURLs.push({ iconURL: tenDayForecast[i].icon_url });
+        }
+
+        console.log('icon urls: ', tenDayForecastImgURLs);
 
         return;
       }).catch((error) => {
