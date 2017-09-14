@@ -14,7 +14,10 @@ export default class Current extends Component {
     }
   }
 
+
   render() {
+    let apiData = this.props.data;
+    console.log('apiData: ', apiData);
     return (
       <section className="current">
         <img className="current-img"></img>

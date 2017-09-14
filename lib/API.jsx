@@ -12,7 +12,7 @@ export default class API {
   getForecast() {
     return fetch(this.url)
       .then((response) => response.json()) // Transform the data into json
-      .then(jsonData => console.log(jsonData))
+      .then(jsonData => this.parseData(jsonData))
       .catch((error) => {
         console.log('ERROR: ', error);
       });
@@ -25,20 +25,15 @@ export default class API {
     this.current.highTemp = data.forecast.simpleforecast.forecastday[0].high.fahrenheit; // Get the results
     this.current.lowTemp = data.forecast.simpleforecast.forecastday[0].low.fahrenheit; // Get the results
     this.current.summary = data.forecast.txt_forecast.forecastday[0].fcttext;  // Get the results
-    console.log(this.current);
 
     const sevenHourForecast = data.hourly_forecast;  // Get the results
-    console.log('seven hour forecast is: ');
     for (let i = 0; i < 7; i++) {
       this.sevenHourForecast.push({ hour: sevenHourForecast[i].FCTTIME.civil, iconURL: sevenHourForecast[i].icon_url, temp: sevenHourForecast[i].temp.english });
     }
-    console.log(this.sevenHourForecast);
 
     const tenDayForecast = data.forecast.simpleforecast.forecastday;  // Get the results
-    console.log('ten day forecast is: ');
     for (let i = 0; i < 10; i++) {
       this.tenDayForecast.push({ day: tenDayForecast[i].date.weekday, iconURL: tenDayForecast[i].icon_url, highTemp: tenDayForecast[i].high.fahrenheit, lowTemp: tenDayForecast[i].low.fahrenheit });
     }
-    console.log(this.tenDayForecast);
   }
 }

@@ -13,13 +13,15 @@ export default class App extends Component {
   constructor() {
     super();
     this.state = {
-      apiData: undefined,
+      apiData: {},
       location: '',
     }
   }
   getAPIData(location) {
+
     const apiResults = new API(location);
-    this.setState({ apiData: apiResults.getForecast() });
+    apiResults.getForecast()
+    this.setState({ apiData: { current: apiResults.current, sevenHour: apiResults.sevenHourForecast, tenDay: apiResults.tenDayForecast} });
   }
   render() {
     return (
@@ -27,7 +29,7 @@ export default class App extends Component {
       <Header />
       <Search setLocation={this.getAPIData.bind(this)} />
       <main>
-        <Current />
+        <Current data={this.state.apiData}/>
         <h2>Forecast</h2>
         <hr />
         <Seven />
