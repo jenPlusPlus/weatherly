@@ -6,11 +6,11 @@ export default class Current extends Component {
   constructor () {
     super();
     this.state = {
-      image:,
+      image: '',
       condition:React.PropTypes.string.isRequired,
-      high:,
-      low:,
-      temp:,
+      high: '',
+      low: '',
+      temp: '',
     }
   }
 
