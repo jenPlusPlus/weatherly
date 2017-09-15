@@ -14,7 +14,7 @@ export default class Search extends React.Component {
   runSearch() {
     console.log('running search');
     console.log(this.props.searchTerm);
-    this.props.setLocation(this.state.input);
+    this.props.getAPIData(this.state.input);
     // let api = new API(this.state.input);
     // api.getForecast();
   }

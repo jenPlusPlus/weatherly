@@ -13,23 +13,33 @@ export default class App extends Component {
   constructor() {
     super();
     this.state = {
-      apiData: {},
+      apiData: null,
       location: '',
     }
   }
   getAPIData(location) {
-
     const apiResults = new API(location);
     apiResults.getForecast()
-    this.setState({ apiData: { current: apiResults.current, sevenHour: apiResults.sevenHourForecast, tenDay: apiResults.tenDayForecast} });
+      .then(result => {
+        this.setState({
+          apiData: {
+            current: result.current,
+            sevenHour: result.sevenHourForecast,
+            tenDay: result.tenDayForecast
+          }
+        })
+      })
   }
   render() {
     return (
     <div className="weatherly">
       <Header />
-      <Search setLocation={this.getAPIData.bind(this)} />
+      <Search getAPIData={this.getAPIData.bind(this)} />
       <main>
-        <Current data={this.state.apiData}/>
+        {
+          this.state.apiData &&
+          <Current data={this.state.apiData}/>
+        }
         <h2>Forecast</h2>
         <hr />
         <Seven />

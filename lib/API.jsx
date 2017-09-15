@@ -35,5 +35,6 @@ export default class API {
     for (let i = 0; i < 10; i++) {
       this.tenDayForecast.push({ day: tenDayForecast[i].date.weekday, iconURL: tenDayForecast[i].icon_url, highTemp: tenDayForecast[i].high.fahrenheit, lowTemp: tenDayForecast[i].low.fahrenheit });
     }
+    return this;
   }
 }
