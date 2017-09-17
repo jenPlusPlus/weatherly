@@ -3,25 +3,27 @@ import '../CSS/styles.css'
 
 
 export default class Current extends Component {
-  constructor() {
-    super();
+  constructor (props) {
+    super(props);
     this.state = {
-      image: '',
-      condition: '',
-      high: '',
-      low: '',
-      temp: '',
+      city: props.data.current.city,
+      condition: props.data.current.condition,
+      day: props.data.current.day,
+      temp: props.data.current.temp,
+      high: props.data.current.highTemp,
+      low: props.data.current.lowTemp,
+      summary: props.data.current.summary,
     }
   }
-
   render() {
+    // let apiData = this.props.data;
     return (
       <section className="current">
         <img className="current-img"></img>
-        <p className="current-condition">Partly Cloudy</p>
-        <p className="current-high">99°</p>
-        <p className="current-low">77°</p>
-        <p className="current-temp">88°</p>
+        <p className="current-condition">Condition: { this.state.condition }</p>
+        <p className="current-high"></p>
+        <p className="current-low"></p>
+        <p className="current-temp"></p>
       </section>
     );
   }
