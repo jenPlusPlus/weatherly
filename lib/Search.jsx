@@ -15,6 +15,7 @@ export default class Search extends React.Component {
     console.log('running search');
     console.log(this.props.searchTerm);
     this.props.getAPIData(this.state.input);
+    // set local storage
   }
   setTheState(searchTerm) {
     console.log('setting the state');

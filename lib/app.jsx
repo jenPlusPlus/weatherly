@@ -17,7 +17,6 @@ export default class App extends Component {
       location: '',
     }
   }
-
   getAPIData(location) {
     const apiResults = new API(location);
     apiResults.getForecast()
@@ -31,6 +30,14 @@ export default class App extends Component {
         })
       })
   }
+  componentDidMount() {
+    console.log('storage', localStorage.length > 0);
+    if (localStorage.length > 0) {
+      window.addEventListener('load', () => {
+        this.getAPIData(localStorage.getItem('location'));
+      });
+    }
+  }
   render() {
     return (
       <div className="weatherly">
@@ -38,7 +45,7 @@ export default class App extends Component {
           <Header />
           <Search getAPIData={this.getAPIData.bind(this)} />
           {
-            this.state.apiData &&
+            this.state.apiData || localStorage.length > 0 &&
             <Current data={this.state.apiData}/>
           }
         </div>
