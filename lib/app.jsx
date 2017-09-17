@@ -34,13 +34,15 @@ export default class App extends Component {
   render() {
     return (
       <div className="weatherly">
-        <Header />
-        <Search getAPIData={this.getAPIData.bind(this)} />
-        <main>
+        <div className="splash">
+          <Header />
+          <Search getAPIData={this.getAPIData.bind(this)} />
           {
             this.state.apiData &&
             <Current data={this.state.apiData}/>
           }
+        </div>
+        <main>
           <h2>Forecast</h2>
           <hr />
           <Seven />
