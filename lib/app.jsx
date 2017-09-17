@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-
 import ReactDOM from 'react-dom';
 import Header from './Header';
 import Current from './Current-Weather';
@@ -13,21 +12,23 @@ export default class App extends Component {
     super();
     this.state = {
       apiData: undefined,
-    }
+    };
   }
 
   render() {
     return (
-    <div className="weatherly">
-      <Header />
-      <main>
-        <Current />
-        <h2>Forecast</h2>
-        <hr />
-        <Seven />
-        <Ten />
-      </main>
-    </div>
-  );
+      <div className="weatherly">
+        <div className="splash">
+          <Header />
+          <Current />
+        </div>
+        <main>
+          <h2>Forecast</h2>
+          <hr />
+          <Seven />
+          <Ten />
+        </main>
+      </div>
+    );
   }
 }
