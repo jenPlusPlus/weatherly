@@ -35,8 +35,10 @@ export default class App extends Component {
     return (
       <div className="weatherly">
         <div className="splash">
-          <Header />
-          <Search getAPIData={this.getAPIData.bind(this)} />
+          <div className="search-container">
+            <Header />
+            <Search getAPIData={this.getAPIData.bind(this)} />
+          </div>
           {
             this.state.apiData &&
             <Current data={this.state.apiData}/>
@@ -45,8 +47,23 @@ export default class App extends Component {
         <main>
           <h2>Forecast</h2>
           <hr />
-          <Seven />
-          <Ten />
+          <div className="hour-cards">
+            {
+              this.state.apiData &&
+              <Seven data={this.state.apiData}/>
+            }
+            {
+              this.state.apiData &&
+              <Seven data={this.state.apiData}/>
+            }
+          </div>
+          <hr />
+          <div className="ten-cards">
+            {
+              this.state.apiData &&
+              <Ten data={this.state.apiData}/>
+            }
+          </div>
         </main>
       </div>
     );
