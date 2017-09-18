@@ -39,7 +39,9 @@ body {
   height: 25vh;
   background-color: blue;
 }
-
+.search {
+  color: black;
+}
 main {
   margin: 5px;
   opacity: 0.5;

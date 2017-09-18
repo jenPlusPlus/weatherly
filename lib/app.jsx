@@ -14,10 +14,8 @@ export default class App extends Component {
     super();
     this.state = {
       apiData: null,
-      location: '',
     }
   }
-
   getAPIData(location) {
     const apiResults = new API(location);
     apiResults.getForecast()
@@ -26,10 +24,16 @@ export default class App extends Component {
           apiData: {
             current: result.current,
             sevenHour: result.sevenHourForecast,
-            tenDay: result.tenDayForecast
-          }
+            tenDay: result.tenDayForecast,
+          },
         })
       })
+  }
+  componentDidMount() {
+    console.log('storage', localStorage.getItem('location'));
+    if (this.state.apiData == null && localStorage.location !== '') {
+      this.getAPIData(localStorage.getItem('location'));
+    }
   }
   render() {
     return (
@@ -39,7 +43,7 @@ export default class App extends Component {
           <Search getAPIData={this.getAPIData.bind(this)} />
           {
             this.state.apiData &&
-            <Current data={this.state.apiData}/>
+            <Current data={this.state.apiData} />
           }
         </div>
         <main>
