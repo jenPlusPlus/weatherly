@@ -10,6 +10,7 @@ export default class API {
     this.tenDayForecast = [];
   }
   getForecast() {
+    localStorage.setItem('location', this.location);
     return fetch(this.url)
       .then((response) => response.json()) // Transform the data into json
       .then(jsonData => this.parseData(jsonData))
