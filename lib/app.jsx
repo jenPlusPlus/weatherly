@@ -14,7 +14,6 @@ export default class App extends Component {
     super();
     this.state = {
       apiData: null,
-      location: '',
     }
   }
   getAPIData(location) {
@@ -25,17 +24,15 @@ export default class App extends Component {
           apiData: {
             current: result.current,
             sevenHour: result.sevenHourForecast,
-            tenDay: result.tenDayForecast
-          }
+            tenDay: result.tenDayForecast,
+          },
         })
       })
   }
   componentDidMount() {
-    console.log('storage', localStorage.length > 0);
-    if (localStorage.length > 0) {
-      window.addEventListener('load', () => {
-        this.getAPIData(localStorage.getItem('location'));
-      });
+    console.log('storage', localStorage.getItem('location'));
+    if (this.state.apiData == null && localStorage.location !== '') {
+      this.getAPIData(localStorage.getItem('location'));
     }
   }
   render() {
@@ -45,8 +42,8 @@ export default class App extends Component {
           <Header />
           <Search getAPIData={this.getAPIData.bind(this)} />
           {
-            this.state.apiData || localStorage.length > 0 &&
-            <Current data={this.state.apiData}/>
+            this.state.apiData &&
+            <Current data={this.state.apiData} />
           }
         </div>
         <main>
