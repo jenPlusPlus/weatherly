@@ -1,7 +1,7 @@
-import React from 'react';
-import Ten from '../lib/Ten-Day';
-// needs data
-import { shallow, mount } from 'enzyme';
+// import React from 'react';
+// import Ten from '../lib/Ten-Day';
+// // needs data
+// import { shallow, mount } from 'enzyme';
 
 // describe('', () => {
 //   it('', () => {

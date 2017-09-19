@@ -1,7 +1,7 @@
-import React from 'react';
-import Seven from '../lib/Seven-Hour';
-// needs data
-import { shallow, mount } from 'enzyme';
+// import React from 'react';
+// import Seven from '../lib/Seven-Hour';
+// // needs data
+// import { shallow, mount } from 'enzyme';
 
 // describe('', () => {
 //   it('', () => {
