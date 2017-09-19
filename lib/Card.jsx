@@ -1,19 +1,28 @@
 import React from 'react';
 
 const Card = (props) => {
+  let cardType = props.classType
+  console.log(props.data.sevenHour)
+
+  let returnVariable = (cardType === 'ten-day' ?
+     <section className={props.classType}>
+       <p className="ten-day-day">{props.data.day}</p>
+       {/* <img className="ten-day-img">{props.data.tenDay[0].iconURL}</img> */}
+       <p className="ten-day-high">{props.data.highTemp}</p>
+       <p className="ten-day-low">{props.data.lowTemp}</p>
+     </section>
+     :
+     <section className={props.classType}>
+       <p className="hour-time">{props.data.hour}</p>
+       <p className="hour-temp">{props.data.temp}</p>
+       {/* <img className="hour-img">{props.data.sevenHour[0].iconURL}</img> */}
+     </section>
+  );
+
 
   return (
-    // Use className={props.cardType} to have conditional rendering for each card
-    <div className={props.className}>
-      {/* <h3 className="time">Time</h3>
-      <img className="weatherIcon"></img>
-      <p className="lowTemp">Low Temp</p>
-      <p className="highTemp">High Temp</p> */}
-      <p className="day">{props.data.tenDay.day}</p>
-      <img className="img">{props.data.tenDay.iconURL}</img>
-      <p className="temp">{props.data.sevenHour.temp}</p>
-      <p className="high">{props.data.sevenHour.highTemp}</p>
-      <p className="low">{props.data.sevenHour.lowTemp}</p>
+    <div>
+      {returnVariable}
     </div>
   );
 };
