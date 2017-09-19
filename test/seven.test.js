@@ -1,5 +1,5 @@
 import React from 'react';
-import Current from '../lib/Current-Weather';
+import Seven from '../lib/Seven-Hour';
 import { shallow, mount } from 'enzyme';
 
 describe('Seven Day component', () => {
@@ -39,47 +39,48 @@ describe('Seven Day component', () => {
       temp: '84',
     }]
   }
-  const shallowCurrent = shallow(<Seven data={currentWeather} />)
+  const mountSevenHour = mount(<Seven data={currentWeather} />)
+  const cards = mountSevenHour.find('Card');
 
-  it('should display a city', () => {
-    const city = shallowCurrent.find('.current-city');
-
-    expect(city.text()).toEqual(currentWeather.current.city);
+  it('should display seven cards', () => {
+    expect(cards.nodes.length).toEqual(7);
   });
 
-  it('should display the condition', () => {
-    const condition = shallowCurrent.find('.current-condition');
+  it('should have hour on cards', () => {
 
-    expect(condition.text()).toEqual(currentWeather.current.condition);
+      expect(cards.nodes[0].props.data.hour).toEqual(currentWeather.sevenHour[0].hour);
+      expect(cards.nodes[1].props.data.hour).toEqual(currentWeather.sevenHour[1].hour);
+      expect(cards.nodes[2].props.data.hour).toEqual(currentWeather.sevenHour[2].hour);
+      expect(cards.nodes[3].props.data.hour).toEqual(currentWeather.sevenHour[3].hour);
+      expect(cards.nodes[4].props.data.hour).toEqual(currentWeather.sevenHour[4].hour);
+      expect(cards.nodes[5].props.data.hour).toEqual(currentWeather.sevenHour[5].hour);
+      expect(cards.nodes[6].props.data.hour).toEqual(currentWeather.sevenHour[6].hour);
+
   });
 
-  it('should display the day', () => {
-    const day = shallowCurrent.find('.current-day');
+  // it('should have an icon cards', () => {
+  //
+  //     expect(cards.nodes[0].props.data.iconURL).toEqual(currentWeather.sevenHour[0].iconURL);
+  //     expect(cards.nodes[1].props.data.iconURL).toEqual(currentWeather.sevenHour[1].iconURL);
+  //     expect(cards.nodes[2].props.data.iconURL).toEqual(currentWeather.sevenHour[2].iconURL);
+  //     expect(cards.nodes[3].props.data.iconURL).toEqual(currentWeather.sevenHour[3].iconURL);
+  //     expect(cards.nodes[4].props.data.iconURL).toEqual(currentWeather.sevenHour[4].iconURL);
+  //     expect(cards.nodes[5].props.data.iconURL).toEqual(currentWeather.sevenHour[5].iconURL);
+  //     expect(cards.nodes[6].props.data.iconURL).toEqual(currentWeather.sevenHour[6].iconURL);
+  //
+  // });
 
-    expect(day.text()).toEqual(currentWeather.current.day);
+  it('should have a temperature on cards', () => {
+
+      expect(cards.nodes[0].props.data.temp).toEqual(currentWeather.sevenHour[0].temp);
+      expect(cards.nodes[1].props.data.temp).toEqual(currentWeather.sevenHour[1].temp);
+      expect(cards.nodes[2].props.data.temp).toEqual(currentWeather.sevenHour[2].temp);
+      expect(cards.nodes[3].props.data.temp).toEqual(currentWeather.sevenHour[3].temp);
+      expect(cards.nodes[4].props.data.temp).toEqual(currentWeather.sevenHour[4].temp);
+      expect(cards.nodes[5].props.data.temp).toEqual(currentWeather.sevenHour[5].temp);
+      expect(cards.nodes[6].props.data.temp).toEqual(currentWeather.sevenHour[6].temp);
+
   });
 
-  it('should display the current temperature', () => {
-    const temp = shallowCurrent.find('.current-temp');
 
-    expect(temp.text()).toEqual(currentWeather.current.temp);
-  });
-
-  it('should display high temp', () => {
-    const high = shallowCurrent.find('.current-high');
-
-    expect(high.text()).toEqual(currentWeather.current.highTemp);
-  });
-
-  it('should display low temp', () => {
-    const low = shallowCurrent.find('.current-low');
-
-    expect(low.text()).toEqual(currentWeather.current.lowTemp);
-  });
-
-  it('should display summary', () => {
-    const summary = shallowCurrent.find('.current-summary');
-
-    expect(summary.text()).toEqual(currentWeather.current.summary);
-  });
 });
