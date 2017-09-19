@@ -39,7 +39,7 @@ input {
   top: 0px;
   width: 100%;
   height: 5vh;
-  background-color: red;
+  /*background-color: red;*/
 }
 
 input {
@@ -53,6 +53,7 @@ input {
 
 main {
   margin: 5px;
+  padding-top: 20px;
   background: rgba(0,0,0,0.5);
 }
 
@@ -80,4 +81,9 @@ main h2 {
   display: flex;
   justify-content: space-between;
   padding: 5px;
+}
+
+.welcome {
+  position: absolute;
+  top: 55px;
 }
