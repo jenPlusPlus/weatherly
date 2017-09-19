@@ -2,7 +2,7 @@ import React from 'react';
 import Seven from '../lib/Seven-Hour';
 import { shallow, mount } from 'enzyme';
 
-describe('Seven Day component', () => {
+describe('Seven Hour component', () => {
   const currentWeather = {
       sevenHour: [{
       hour: '9:00 AM',
