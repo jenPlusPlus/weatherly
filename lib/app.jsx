@@ -21,6 +21,7 @@ export default class App extends Component {
     const apiResults = new API(location);
     apiResults.getForecast()
       .then(result => {
+
         this.setState({
           apiData: {
             current: result.current,
@@ -32,7 +33,7 @@ export default class App extends Component {
   }
   componentDidMount() {
     console.log('localStorage.location', localStorage.location);
-    if (this.state.apiData == null && localStorage.location !== '') {
+    if (this.state.apiData == null && localStorage.location != null) {
       this.getAPIData(localStorage.getItem('location'));
     }
   }
@@ -45,7 +46,7 @@ export default class App extends Component {
             <Search getAPIData={this.getAPIData.bind(this)} />
           </div>
           {
-            localStorage.location == 'null' &&
+            localStorage.location == undefined &&
             <Welcome />
           }
           {

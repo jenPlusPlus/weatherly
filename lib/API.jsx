@@ -10,12 +10,12 @@ export default class API {
     this.tenDayForecast = [];
   }
   getForecast() {
-    localStorage.setItem('location', this.location);
     return fetch(this.url)
       .then((response) => response.json()) // Transform the data into json
       .then(jsonData => this.parseData(jsonData))
       .catch((error) => {
-        console.log('ERROR: ', error);
+        alert('Please enter a valid city and state or zip code');
+        console.log('API ERROR: ', error);
       });
   }
   parseData(data) {
@@ -36,6 +36,9 @@ export default class API {
     for (let i = 0; i < 10; i++) {
       this.tenDayForecast.push({ day: tenDayForecast[i].date.weekday, iconURL: tenDayForecast[i].icon_url, highTemp: tenDayForecast[i].high.fahrenheit, lowTemp: tenDayForecast[i].low.fahrenheit });
     }
+
+    localStorage.setItem('location', this.location);
+    
     return this;
   }
 }
