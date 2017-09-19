@@ -56,10 +56,6 @@ export default class App extends Component {
               this.state.apiData &&
               <Seven data={this.state.apiData}/>
             }
-            {
-              this.state.apiData &&
-              <Seven data={this.state.apiData}/>
-            }
           </div>
           <hr />
           <div className="ten-cards">

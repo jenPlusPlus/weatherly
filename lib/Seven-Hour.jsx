@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Card from './Card';
 import '../CSS/styles.css';
 
 
@@ -11,11 +12,17 @@ export default class Seven extends Component {
 
   render() {
     return (
-      <section className="seven-hour">
-        <p className="hour-time">{this.props.data.sevenHour[0].hour}</p>
-        <p className="hour-temp">{this.props.data.sevenHour[0].temp}</p>
-        {/* <img className="hour-img">{this.props.data.sevenHour[0].iconURL}</img> */}
-      </section>
+      <div className="hour-cards">
+        {this.props.data.sevenHour.map((hour, index) => {
+          return <Card data={hour} classType={this.className}/>
+        })}
+      </div>
+
+      // <section className="seven-hour">
+      //   <p className="hour-time">{this.props.data.sevenHour[0].hour}</p>
+      //   <p className="hour-temp">{this.props.data.sevenHour[0].temp}</p>
+      //   {/* <img className="hour-img">{this.props.data.sevenHour[0].iconURL}</img> */}
+      // </section>
     );
   }
 }
