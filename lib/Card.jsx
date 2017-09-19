@@ -7,7 +7,7 @@ const Card = (props) => {
   let returnVariable = (cardType === 'ten-day' ?
      <section className={props.classType}>
        <p className="ten-day-day">{props.data.day}</p>
-       {/* <img className="ten-day-img">{props.data.tenDay[0].iconURL}</img> */}
+       <img src={props.data.iconURL} className="ten-day-img" />
        <p className="ten-day-high">{props.data.highTemp}</p>
        <p className="ten-day-low">{props.data.lowTemp}</p>
      </section>
@@ -15,7 +15,7 @@ const Card = (props) => {
      <section className={props.classType}>
        <p className="hour-time">{props.data.hour}</p>
        <p className="hour-temp">{props.data.temp}</p>
-       {/* <img className="hour-img">{props.data.sevenHour[0].iconURL}</img> */}
+       <img src={props.data.iconURL} className="hour-img" />
      </section>
   );
 
