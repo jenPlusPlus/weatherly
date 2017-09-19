@@ -1,7 +1,7 @@
-import React from 'react';
-import App from '../lib/App';
-// needs data
-import { shallow, mount } from 'enzyme';
+// import React from 'react';
+// import App from '../lib/App';
+// // needs data
+// import { shallow, mount } from 'enzyme';
 
 // describe('', () => {
 //   it('', () => {
