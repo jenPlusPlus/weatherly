@@ -86,20 +86,20 @@ describe('Ten Day component', () => {
 
   });
 
-  // it('should have an icon cards', () => {
-  //
-  //     expect(cards.nodes[0].props.data.iconURL).toEqual(currentWeather.tenDay[0].iconURL);
-  //     expect(cards.nodes[1].props.data.iconURL).toEqual(currentWeather.tenDay[1].iconURL);
-  //     expect(cards.nodes[2].props.data.iconURL).toEqual(currentWeather.tenDay[2].iconURL);
-  //     expect(cards.nodes[3].props.data.iconURL).toEqual(currentWeather.tenDay[3].iconURL);
-  //     expect(cards.nodes[4].props.data.iconURL).toEqual(currentWeather.tenDay[4].iconURL);
-  //     expect(cards.nodes[5].props.data.iconURL).toEqual(currentWeather.tenDay[5].iconURL);
-  //     expect(cards.nodes[6].props.data.iconURL).toEqual(currentWeather.tenDay[6].iconURL);
-  //     expect(cards.nodes[7].props.data.iconURL).toEqual(currentWeather.tenDay[7].iconURL);
-  //     expect(cards.nodes[8].props.data.iconURL).toEqual(currentWeather.tenDay[8].iconURL);
-  //     expect(cards.nodes[9].props.data.iconURL).toEqual(currentWeather.tenDay[9].iconURL);
+  it('should have an icon cards', () => {
 
-  // });
+      expect(cards.nodes[0].props.data.iconURL).toEqual(currentWeather.tenDay[0].iconURL);
+      expect(cards.nodes[1].props.data.iconURL).toEqual(currentWeather.tenDay[1].iconURL);
+      expect(cards.nodes[2].props.data.iconURL).toEqual(currentWeather.tenDay[2].iconURL);
+      expect(cards.nodes[3].props.data.iconURL).toEqual(currentWeather.tenDay[3].iconURL);
+      expect(cards.nodes[4].props.data.iconURL).toEqual(currentWeather.tenDay[4].iconURL);
+      expect(cards.nodes[5].props.data.iconURL).toEqual(currentWeather.tenDay[5].iconURL);
+      expect(cards.nodes[6].props.data.iconURL).toEqual(currentWeather.tenDay[6].iconURL);
+      expect(cards.nodes[7].props.data.iconURL).toEqual(currentWeather.tenDay[7].iconURL);
+      expect(cards.nodes[8].props.data.iconURL).toEqual(currentWeather.tenDay[8].iconURL);
+      expect(cards.nodes[9].props.data.iconURL).toEqual(currentWeather.tenDay[9].iconURL);
+
+  });
 
   it('should have a high temperature on cards', () => {
 

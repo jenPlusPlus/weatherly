@@ -32,11 +32,6 @@ describe('Card component', () => {
     expect(day.text()).toEqual('Tuesday');
   });
 
-  it.skip('ten-day cards should have an icon', () => {
-    const day = shallowTenCard.find('.ten-day-img');
-
-  });
-
   it('ten-day cards should have a low temp', () => {
     const day = shallowTenCard.find('.ten-day-low');
     expect(day.text()).toEqual('50');
@@ -50,11 +45,6 @@ describe('Card component', () => {
   it('seven-hour cards should have an hour', () => {
     const hour = shallowSevenCard.find('.hour-time');
     expect(hour.text()).toEqual('9:00 AM');
-  });
-
-  it.skip('seven-hour cards should have an icon', () => {
-    const hour = shallowSevenCard.find('.hour-img');
-
   });
 
   it('seven-hour cards should have a temp', () => {
