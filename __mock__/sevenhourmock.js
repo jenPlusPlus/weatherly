@@ -1,5 +1,4 @@
-export default {
-  [{
+const SevenHour = [{
   hour: '9:00 AM',
   iconURL: 'http://icons.wxug.com/i/c/k/partlycloudy.gif',
   temp: '58.8',
@@ -33,4 +32,5 @@ export default {
   iconURL: 'http://icons.wxug.com/i/c/k/partlycloudy.gif',
   temp: '84',
 }]
-}
+
+export default SevenHour;

@@ -1,5 +1,4 @@
 import React from 'react';
-import '../CSS/styles.css';
 
 
 const Current = (props) => {
