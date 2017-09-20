@@ -1,6 +1,5 @@
 import jenKey from './keys.js';
 
-
 export default class API {
   constructor(location) {
     this.location = location;
@@ -38,7 +37,7 @@ export default class API {
     }
 
     localStorage.setItem('location', this.location);
-    
+
     return this;
   }
 }
