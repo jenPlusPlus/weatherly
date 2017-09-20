@@ -58,17 +58,17 @@ describe('Seven Hour component', () => {
 
   });
 
-  // it('should have an icon cards', () => {
-  //
-  //     expect(cards.nodes[0].props.data.iconURL).toEqual(currentWeather.sevenHour[0].iconURL);
-  //     expect(cards.nodes[1].props.data.iconURL).toEqual(currentWeather.sevenHour[1].iconURL);
-  //     expect(cards.nodes[2].props.data.iconURL).toEqual(currentWeather.sevenHour[2].iconURL);
-  //     expect(cards.nodes[3].props.data.iconURL).toEqual(currentWeather.sevenHour[3].iconURL);
-  //     expect(cards.nodes[4].props.data.iconURL).toEqual(currentWeather.sevenHour[4].iconURL);
-  //     expect(cards.nodes[5].props.data.iconURL).toEqual(currentWeather.sevenHour[5].iconURL);
-  //     expect(cards.nodes[6].props.data.iconURL).toEqual(currentWeather.sevenHour[6].iconURL);
-  //
-  // });
+  it('should have an icon cards', () => {
+
+      expect(cards.nodes[0].props.data.iconURL).toEqual(currentWeather.sevenHour[0].iconURL);
+      expect(cards.nodes[1].props.data.iconURL).toEqual(currentWeather.sevenHour[1].iconURL);
+      expect(cards.nodes[2].props.data.iconURL).toEqual(currentWeather.sevenHour[2].iconURL);
+      expect(cards.nodes[3].props.data.iconURL).toEqual(currentWeather.sevenHour[3].iconURL);
+      expect(cards.nodes[4].props.data.iconURL).toEqual(currentWeather.sevenHour[4].iconURL);
+      expect(cards.nodes[5].props.data.iconURL).toEqual(currentWeather.sevenHour[5].iconURL);
+      expect(cards.nodes[6].props.data.iconURL).toEqual(currentWeather.sevenHour[6].iconURL);
+
+  });
 
   it('should have a temperature on cards', () => {
 
