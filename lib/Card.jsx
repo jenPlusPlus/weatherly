@@ -2,7 +2,7 @@ import React from 'react';
 
 const Card = (props) => {
   let cardType = props.classType
-  console.log(props.data.sevenHour)
+  // console.log(props.data.sevenHour)
 
   let returnVariable = (cardType === 'ten-day' ?
      <section className={props.classType}>

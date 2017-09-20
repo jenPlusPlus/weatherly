@@ -5,7 +5,7 @@ import TenMock from '../__mock__/tendaymock'
 import SevenMock from '../__mock__/sevenhourmock'
 import CurrentMock from '../__mock__/currentmock'
 import Trie from '../prefix-trie/scripts/Trie';
-import Cities from './CityList';
+import Cities from '../lib/CityList';
 import { shallow, mount } from 'enzyme';
 
 let theSearch
@@ -37,9 +37,11 @@ describe('Search functionality with shallow', () => {
 
 describe('Search functionality with mount', () => {
   let theSearch;
+  const trie = new Trie;
+  trie.populate(Cities);
   beforeEach(() => {
     theSearch = mount(
-      <Search getAPIData={apiObj}/>
+      <Search getAPIData={apiObj} prefixTrie={trie}/>
     );
   });
 
@@ -49,8 +51,7 @@ describe('Search functionality with mount', () => {
 
   it('should change state of Search when input is received', () => {
     const userInput = theSearch.find('input');
-    const trie = new Trie;
-    trie.populate(Cities);
+
     expect(theSearch.state('input')).toEqual('');
     const newInput = { target: { value: 'Denver' } };
 
@@ -60,7 +61,7 @@ describe('Search functionality with mount', () => {
 
   it('should fire a function on button click', () => {
     const ghostFunction = jest.fn();
-    theSearch = mount(<Search getAPIData={ghostFunction}/>);
+    theSearch = mount(<Search getAPIData={ghostFunction} prefixTrie={trie}/>);
     const userButton = theSearch.find('button');
 
     userButton.simulate('click');

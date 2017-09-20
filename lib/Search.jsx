@@ -14,11 +14,11 @@ export default class Search extends React.Component {
     this.suggestions = [];
   }
   runSearch() {
-    console.log('running search');
+    // console.log('running search');
     this.props.getAPIData(this.state.input);
   }
   setTheState(searchTerm) {
-    console.log('setting the state');
+    // console.log('setting the state');
     this.setState({ input: searchTerm });
     this.suggestions = this.trie.suggest(this.state.input);
 
