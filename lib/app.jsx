@@ -6,6 +6,7 @@ import Current from './Current-Weather';
 import API from './API'
 import Seven from './Seven-Hour';
 import Ten from './Ten-Day';
+import Welcome from './Welcome';
 import '../CSS/styles.css';
 
 
@@ -20,6 +21,7 @@ export default class App extends Component {
     const apiResults = new API(location);
     apiResults.getForecast()
       .then(result => {
+
         this.setState({
           apiData: {
             current: result.current,
@@ -30,8 +32,8 @@ export default class App extends Component {
       })
   }
   componentDidMount() {
-    console.log('storage', localStorage.getItem('location'));
-    if (this.state.apiData == null && localStorage.location !== '') {
+    console.log('localStorage.location', localStorage.location);
+    if (this.state.apiData == null && localStorage.location != null) {
       this.getAPIData(localStorage.getItem('location'));
     }
   }
@@ -44,27 +46,39 @@ export default class App extends Component {
             <Search getAPIData={this.getAPIData.bind(this)} />
           </div>
           {
-            this.state.apiData &&
-            <Current data={this.state.apiData} />
+            localStorage.location == undefined &&
+            <Welcome />
           }
+          {
+            this.state.apiData &&
+            <main>
+              <div className='weather-data'>
+                <div>
+                  <Current data={this.state.apiData} />
+
+                </div>
+
+                <h2>Forecast</h2>
+                <hr />
+                <div className="hour-cards">
+
+                  <Seven data={this.state.apiData}/>
+
+                </div>
+                <hr />
+                <div className="ten-cards">
+
+                  <Ten data={this.state.apiData}/>
+
+                </div>
+
+
+
+              </div>
+            </main>
+          }
+
         </div>
-        <main>
-          <h2>Forecast</h2>
-          <hr />
-          <div className="hour-cards">
-            {
-              this.state.apiData &&
-              <Seven data={this.state.apiData}/>
-            }
-          </div>
-          <hr />
-          <div className="ten-cards">
-            {
-              this.state.apiData &&
-              <Ten data={this.state.apiData}/>
-            }
-          </div>
-        </main>
       </div>
     );
   }
