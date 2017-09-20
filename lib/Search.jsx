@@ -1,7 +1,6 @@
 import React from 'react';
 import API from './API';
 import Autocomplete from './Autocomplete';
-import '../CSS/styles.css'
 
 
 export default class Search extends React.Component {

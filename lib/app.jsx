@@ -7,10 +7,7 @@ import API from './API'
 import Seven from './Seven-Hour';
 import Ten from './Ten-Day';
 import Welcome from './Welcome';
-import '../CSS/styles.css';
-import Trie from '../prefix-trie/scripts/Trie';
-import Autocomplete from './Autocomplete';
-import Cities from './CityList';
+
 
 
 export default class App extends Component {
@@ -19,8 +16,6 @@ export default class App extends Component {
     this.state = {
       apiData: null,
     }
-    this.trie = new Trie;
-    this.trie.populate(Cities);
   }
   getAPIData(location) {
     const apiResults = new API(location);
@@ -48,33 +43,34 @@ export default class App extends Component {
         <div className="splash">
           <div className="search-container">
             <Header />
-            <Search getAPIData={this.getAPIData.bind(this)} prefixTrie={this.trie}/>
+            <Search getAPIData={this.getAPIData.bind(this)} />
           </div>
           {
             localStorage.location == undefined &&
             <Welcome />
           }
-          {this.state.apiData &&
-          <div>
-
-            <Current data={this.state.apiData} />
-
-          </div>
-          }
-          </div>
           {
             this.state.apiData &&
             <main>
               <div className='weather-data'>
+                <div>
+                  <Current data={this.state.apiData} />
+
+                </div>
 
                 <h2>Forecast</h2>
                 <hr />
+                <div className="hour-cards">
 
                   <Seven data={this.state.apiData}/>
 
+                </div>
                 <hr />
+                <div className="ten-cards">
 
                   <Ten data={this.state.apiData}/>
+
+                </div>
 
 
 
@@ -83,6 +79,7 @@ export default class App extends Component {
           }
 
         </div>
+      </div>
     );
   }
 }
