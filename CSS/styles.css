@@ -61,6 +61,15 @@ main h2 {
   margin: 5px;
 }
 
+ul {
+  background: white;
+  list-style: none;
+}
+
+li {
+  color: black;
+}
+
 .hour-cards {
   display: flex;
   padding: 5px;
