@@ -7,9 +7,12 @@ export default class Autocomplete extends React.Component {
     super(props);
   }
   selectWord(suggestion) {
-    // this.props.trie.select(suggestion);
-    document.querySelector('.search').value = suggestion;
-    document.querySelector('.search').focus();
+    this.props.trie.select(suggestion);
+    this.props.setSearchState(suggestion);
+    this.props.getAPIData(suggestion);
+    this.props.setSearchState('');
+    this.setState({suggestions: []});
+    this.props.suggestions = this.state.suggestions;
   }
   render() {
     return (
@@ -17,12 +20,12 @@ export default class Autocomplete extends React.Component {
       <ul>
         {this.props.suggestions.map((suggestion) => {
           return (
-            <li onClick={this.selectWord(suggestion)}>
+            <li onClick={this.selectWord.bind(this, suggestion)}>
               {suggestion}
             </li>
           )
         })
-          }
+        }
           </ul>
           </div>
         )
