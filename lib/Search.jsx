@@ -29,7 +29,10 @@ export default class Search extends React.Component {
     <div>
       <input type="search" className="search" value={this.state.input} onChange={(event) => this.setTheState(event.target.value)} placeholder="Search for a city or zip code"></input>
       <button type="submit" onClick={this.runSearch}>Search</button>
-      <Autocomplete suggestions={this.suggestions} trie={this.trie}/>
-    </div>
+      {
+        this.state.input !== '' &&
+        <Autocomplete suggestions={this.suggestions} trie={this.trie} getAPIData={this.props.getAPIData} setSearchState={this.setTheState.bind(this)}/>
+      }
+        </div>
   );}
 }
