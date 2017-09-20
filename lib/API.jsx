@@ -14,7 +14,7 @@ export default class API {
       .then(jsonData => this.parseData(jsonData))
       .catch((error) => {
         alert('Please enter a valid city and state or zip code');
-        console.log('API ERROR: ', error);
+        // console.log('API ERROR: ', error);
       });
   }
   parseData(data) {

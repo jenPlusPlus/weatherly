@@ -37,7 +37,7 @@ export default class App extends Component {
       })
   }
   componentDidMount() {
-    console.log('localStorage.location', localStorage.location);
+    // console.log('localStorage.location', localStorage.location);
     if (this.state.apiData == null && localStorage.location != null) {
       this.getAPIData(localStorage.getItem('location'));
     }

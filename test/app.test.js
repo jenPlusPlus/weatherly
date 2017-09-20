@@ -7,11 +7,35 @@ import Ten from '../lib/Ten-Day'
 import TenMock from '../__mock__/tendaymock'
 import SevenMock from '../__mock__/sevenhourmock'
 import CurrentMock from '../__mock__/currentmock'
-import LocalStorageMock from '../__mock__/localstoragemock'
+// import LocalStorageMock from '../__mock__/localstoragemock'
 import { shallow, mount } from 'enzyme'
 import API from '../lib/API'
 
 describe('App', () => {
+  class LocalStorageMock {
+    constructor() {
+      this.store = {};
+    }
+
+    clear() {
+      this.store = {};
+    }
+
+    getItem(key) {
+      return this.store[key] || null;
+    }
+
+    setItem(key, value) {
+      this.store[key] = value.toString();
+    }
+
+    removeItem(key) {
+      delete this.store[key];
+    }
+  }
+
+  global.localStorage = new LocalStorageMock;
+
   let theApp
   let localStorage = new LocalStorageMock();
   let apiObj = new API('Denver')

@@ -13,7 +13,7 @@ export default class Ten extends Component {
     return (
       <div className="ten-cards">
         {this.props.data.tenDay.map((hour, index) => {
-          console.log(hour)
+          // console.log(hour)
           return <Card data={hour} classType={this.className}/>
         })}
       </div>
