@@ -26,8 +26,11 @@ export default class Search extends React.Component {
   render() {
     return (
     <div>
-      <input type="search" className="search" value={this.state.input} onChange={(event) => this.setTheState(event.target.value)} placeholder="Search for a city or zip code"></input>
-      <button type="submit" onClick={this.runSearch}>Search</button>
+      <input type="search"
+              className="search"
+              value={this.state.input}
+              onChange={(event) => this.setTheState(event.target.value)} placeholder="Search for a city or zip code"></input>
+      <button type="submit"                               onClick={this.runSearch}>Search</button>
       <Autocomplete suggestions={this.suggestions} trie={this.trie}/>
     </div>
   );}

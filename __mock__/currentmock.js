@@ -1,4 +1,4 @@
-export default {
+const Current = {
 city: 'Denver, CO',
 condition: 'Partly Cloudy',
 day: 'Tuesday',
@@ -7,4 +7,5 @@ lowTemp: '50',
 summary: 'A mix of clouds and sun. High near 85F. S winds shifting to W at 10 to 20 mph.',
 temp: '58.8',
 }
-}
+
+export default Current;

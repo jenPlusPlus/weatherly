@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Card from './Card';
-// import '../CSS/styles.css';
 
 
 export default class Seven extends Component {

@@ -4,10 +4,13 @@ import Header from './Header';
 import Search from './Search';
 import Current from './Current-Weather';
 import API from './API'
+import LocalStorageMock from '../__mock__/LocalStorageMock';
 import Seven from './Seven-Hour';
 import Ten from './Ten-Day';
 import Welcome from './Welcome';
-
+import Trie from '../prefix-trie/scripts/Trie';
+import Autocomplete from './Autocomplete';
+import Cities from './CityList';
 
 
 export default class App extends Component {

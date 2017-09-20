@@ -7,18 +7,20 @@ import Ten from '../lib/Ten-Day'
 import TenMock from '../__mock__/tendaymock'
 import SevenMock from '../__mock__/sevenhourmock'
 import CurrentMock from '../__mock__/currentmock'
+import LocalStorageMock from '../__mock__/localstoragemock'
 import { shallow, mount } from 'enzyme'
 import API from '../lib/API'
 
 describe('App', () => {
   let theApp
+  let localStorage = new LocalStorageMock();
   let apiObj = new API('Denver')
   apiObj.current = CurrentMock
   apiObj.sevenHourForecast = SevenMock
   apiObj.tenDayForecast = TenMock
 
   beforeEach(() => {
-    theApp = mount(<App />)
+    theApp = shallow(<App />)
   })
 
   it('should exist', () => {

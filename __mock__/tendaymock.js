@@ -1,5 +1,4 @@
-export default {
-  [{
+const TenDay = [{
   day: 'Tuesday',
   iconURL: 'http://icons.wxug.com/i/c/k/partlycloudy.gif',
   highTemp: '85',
@@ -58,4 +57,5 @@ export default {
   highTemp: '68',
   lowTemp: '47',
 }]
-}
+
+export default TenDay;
