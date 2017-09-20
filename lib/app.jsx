@@ -8,6 +8,9 @@ import Seven from './Seven-Hour';
 import Ten from './Ten-Day';
 import Welcome from './Welcome';
 import '../CSS/styles.css';
+import Trie from '../prefix-trie/scripts/Trie';
+import Autocomplete from './Autocomplete';
+import Cities from './CityList';
 
 
 export default class App extends Component {
@@ -16,6 +19,8 @@ export default class App extends Component {
     this.state = {
       apiData: null,
     }
+    this.trie = new Trie;
+    this.trie.populate(Cities);
   }
   getAPIData(location) {
     const apiResults = new API(location);
@@ -43,7 +48,7 @@ export default class App extends Component {
         <div className="splash">
           <div className="search-container">
             <Header />
-            <Search getAPIData={this.getAPIData.bind(this)} />
+            <Search getAPIData={this.getAPIData.bind(this)} prefixTrie={this.trie}/>
           </div>
           {
             localStorage.location == undefined &&
