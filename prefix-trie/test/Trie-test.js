@@ -29,15 +29,15 @@ describe('Trie', () => {
       children: {}, isWord: true, frequency: 0 }});
   });
 
-  // it('should add an entire library, for a wordCount of 235886', (done) => {
-  //   let trie = new Trie();
-  //
-  //   trie.populate(dictionary);
-  //
-  //   expect(trie.wordCount).to.equal(235886);
-  //
-  //   done();
-  // }).timeout(25000);
+  it('should add an entire library, for a wordCount of 235886', (done) => {
+    let trie = new Trie();
+
+    trie.populate(dictionary);
+
+    expect(trie.wordCount).to.equal(235886);
+
+    done();
+  }).timeout(25000);
 
   it('should return an empty array if the prefix is not in the Trie', () => {
     let trie = new Trie();
@@ -81,7 +81,7 @@ describe('Trie', () => {
     trie.select('alice');
 
     let suggestions = trie.suggest('al');
-
+    
     expect(suggestions).to.deep.equal(['alice', 'allison', 'alex']);
 
     trie.select('allison');
