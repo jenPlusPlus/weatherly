@@ -1,38 +1,60 @@
-# React Starter Kit
+## About
+This was a Turing School project, and it was our first time to work with React. The app uses the Weather Underground API to retrieve weather data that is displayed. It also uses an auto-complete function that was built as a previous project.
 
-To install the dependencies:
+### Required Technology
+- ReactJS
+- fetch for api requests
+- weather underground API
+- Use this react starter kit repo.
 
-```
-npm install
-```
+### Requirements
+Your weather underground API key should not be stored on github. Store it in a seperate file. This file should be added to your .gitignore file.
 
-To fire up a development server:
+Your app should have at a minimum the following components.
 
-```
-npm start
-```
+1. App
+2. Welcome
+3. Search
+4. Current Weather
+5. 7 Hour Forecast
+6. 10 Day Forecast
+7. Card (used in 7 hour and 10 day)
 
-Once the server is running, you can visit:
+#### Phase one
+Create your Current Weather component
 
-* `http://localhost:8080/webpack-dev-server/` to run your application.
-* `http://localhost:8080/webpack-dev-server/test.html` to run your test suite in the browser.
+You will create your User Interface using mock data. This will speed up your development time by not waiting for api requests. You can find the mock data here. Copy it into a seperate file that you can then import into your App file.
 
-To build the static files:
+Your Current Weather component should display the following information
 
-```js
-npm run build
-```
+- the name of the current city
+- the current condition
+- the current day
+- the current temperature
+- the expected high and expected low for the day
+- a summary of what the weather is going to be like that day (“Windy, chance of a few late night showers. Lows overnight in the mid 50s.)
 
+#### Phase two
+The application should have a 7 hour weather forecast component. Each hour should be a card component and should display
+- the hour
+- an image that reflects the weather
+- the projected temperature
+- Application should handle when a user searches for a location that is not found by the API. Team should research different ways to handle unfound locations by looking around on different weather and other location searching applications and implement a solution for their project that they find intuitive.
 
-To run tests in Node:
+#### Phase three
+The application should have a 10 day forecast component. Each day should be a card component and should display
+- the name of the day
+- an image that reflects the weather
+- the projected high and low temperature
 
-```js
-npm test
-```
-# Wireframe / Design inspiration
+#### Phase four
+Your application should have a welcome page that greets the user. The welcome page has a search component.
+The search component consists of an input field and a submit button that allows the user to search for a location (the location should work with both a zip code and city/state).
 
-Inspiration:
-[style inspiration](https://lh3.googleusercontent.com/4PbuTdB3AbCPfD7eAcDafsjIB7hHl0pUXn-MFMT_EHSE3N9tJi7modSboXKmin7CsB5bMwJrh8hi8uFLVzYJfbrIAFkW4SLXlvDfh3AjJWGXg0hKMWqgz1JXV_T8ObyDtzSdl3iJPOpJWln6eHi-SIxk7EvD_3wbH5TDi_Nhkkjil49pgqdEh3ScQyFFozxcHrZ5OTHBo_jmAU2cJ6PjR_L2g_xaKPQF64nlq_N3hUpq_v4omo8J9FeyK39S9qrnMvOMJ7pXunOlfCm8MM97FFYN-5fi0BseTYP6bBCIQfIxEsWN9_NiJX48egDhKKGvgPWt6k9Zq65z6CdVF67anBbpUyCLmSfpp24BkOIdydqSGncGGQAw7f12I3A1TCzw9o5U90jgeI1FhAfasNTNDNnXiFw87ubmp3Ht7INh69spEn_QAbz7nG5hgUwVKT5XJsKaYuy87YSBKa2w0db2amu3-lLMJaMblEMCiCll98Ah9fFq0bQFj7XVcuBOyC_cXL1Ba61C6k92oee9S_QnwL7S0TPVbzP7CSCtlGI_jX0OrY8Br_56k7qMiyPPOc_d9exFjRfTk7olDYMAgYS9lBaCzek7i9oFL7E9m6X0pA=w244-h207-no)
+Once the desired location is submitted there should be a way for the user to change location information. Once the location information is changed the weather should reflect the desired location.
 
-Wireframe:
-[Wireframe](https://lh3.googleusercontent.com/8Yn71Tp4tOdGiWUdziVFctcdoshkj--foK0YSiqO4s7tglQV6Gdn97fEcEEKvag0XQxU2kDehNU-DNR_mZRmDpzTmNaiSrvur3W87NNnfo0hcyZdRsQGDhyfIDVTJdztY1l5N86rmZKoDJS55v-4vyDu4px5wtdxMqP4Gp--Y4r88Zqz-QsaRnHMdz0OOZoQzPn8tv8m-SZUOyg5aGo2A0n4PqYz93vjImFjlp5sIVbcW7rKamsBC5_krtsJDF_V2gS7gMUkD2P4RBvg0APb0tYI3YL0wS1mtFH-AjrXFrnzmTzgUMiasRf6wnXb5Xj-Mo89kBGJfNgR8lKmZh9qR5x1f7vTMPyZ9rMLFnk3L0s-vyuEliMC1Zr8F48UmZeTLxlP9UuBZa7rY36Z3wnTuo17oDPuVOwrCsx2Mv0d0xPYATTN-0c7MBWY_vGmEwG4SZS5i0bFoDoLCWoEtM-4g1rpDxrqnybHGCWm56PaQWgTSYynvTHAdnPkxwRcCJ6dQiVGx71uwE6KcU-qKpZUXqfY-CBV8qZWsGgv9WhTe3zD0g2o8IZDA1zjQ4iijLHrh1e6M7G9aWByGguIzScr43CD0wJ8foM-TDCOhH-3kA=w1022-h1360-no)
+location persists after refresh.
+
+##### Phase five
+Add autocomplete functionality to your search input
+import your completeMe into your Weathrly project. Populate it with this list of city/states. When a user starts typing in a city/state or zip code display a list of possible suggestions using your completeMe’s suggest function.
