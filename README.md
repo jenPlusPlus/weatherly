@@ -55,6 +55,6 @@ Once the desired location is submitted there should be a way for the user to cha
 
 location persists after refresh.
 
-##### Phase five
+#### Phase five
 Add autocomplete functionality to your search input
 import your completeMe into your Weathrly project. Populate it with this list of city/states. When a user starts typing in a city/state or zip code display a list of possible suggestions using your completeMe’s suggest function.
